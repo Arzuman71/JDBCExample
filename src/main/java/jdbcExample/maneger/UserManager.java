@@ -11,7 +11,6 @@ public class UserManager {
     private Connection connection;
 
     public UserManager() {
-
         connection = DBConnectionProvider.getInstance().getConnection();
     }
 
@@ -26,6 +25,7 @@ public class UserManager {
         ResultSet resultSet = preparedStatement.getGeneratedKeys();
         if (resultSet.next()) {
             int id = resultSet.getInt(1);
+            System.out.println(id);
             user.setId(id);
         }
     }
